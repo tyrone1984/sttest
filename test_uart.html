@@ -5,6 +5,7 @@
   <script src="https://www.espruino.com/js/uart.js"></script>
   <button onclick="UART.write('LED1.set();\n');">LED On!</button>
   <button onclick="UART.write('LED1.reset();\n');">LED Off!</button>
+  <button onclick="writeToFlash()">Write to Flash!</button>
   
   
   <br />
@@ -13,7 +14,11 @@
   function getTemperature() {
     UART.eval('E.getTemperature()', function(t) {
       document.getElementById("result").innerHTML = t;
-    });
+    });  
+  }
+  function writeToFlash(){
+   let addr = '0x60000000';
+   UART.write('require("Flash").read(256,addr)\n');
   }
   </script>
   <button onclick="getTemperature()">Get Temperature</button>
