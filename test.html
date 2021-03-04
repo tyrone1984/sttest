@@ -16,7 +16,7 @@
       document.getElementById("result").innerHTML = t;
     });  
   }
-  function eadFromFlash(){
+  function readFromFlash(){
    let addr = 0x60000000;
    Puck.write('require("Flash").read(256,addr)\n');
   }
