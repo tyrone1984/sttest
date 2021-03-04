@@ -17,7 +17,7 @@
     });  
   }
   function readFromFlash(){
-   let addr = '0x60000000';
+   let addr = 0x60000000;
    UART.write('require("Flash").read(256,addr)\n');
   }
   </script>
